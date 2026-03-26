@@ -196,7 +196,7 @@
   /* SERVICES */
   .services { background: var(--warm-white); }
   .services-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4rem; flex-wrap: wrap; gap: 2rem; }
-  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
   .service-card {
     background: var(--cream);
     border-radius: 1.5rem; padding: 2rem;
@@ -452,7 +452,14 @@
       <p class="service-desc">Set up a weekly or fortnightly plan and never think about your lawn again. Consistent results, every visit.</p>
       <div class="service-price">Custom plan pricing</div>
     </div>
+    <div class="service-card fade-up">
+      <div class="service-icon">🧹</div>
+      <div class="service-name">Cleaning Services</div>
+      <p class="service-desc">General home and outdoor cleaning to keep your property spotless. Reliable, thorough, and done right every time.</p>
+      <div class="service-price">From $50 per visit</div>
+    </div>
   </div>
+  <p style="margin-top: 1.5rem; font-size: 0.85rem; color: var(--text-muted); text-align: center;">* Please note: prices may vary depending on the size of your lawn and your distance from us. Get in touch for an accurate quote.</p>
 </section>
 
 <section class="how" id="how">
@@ -540,6 +547,7 @@
   <div class="section-tag fade-up">Get started</div>
   <h2 class="cta-title fade-up">Ready for a <em>perfect</em><br>lawn this week?</h2>
   <p class="cta-sub fade-up">Leave your number and we'll get back to you within the hour.</p>
+  <p class="fade-up" style="color: var(--green-light); font-size: 0.9rem; margin-bottom: 1.5rem; position: relative;">📍 Based in Alice Springs — serving the local area</p>
   <div class="cta-form-wrap fade-up">
     <form id="contactForm" action="https://formspree.io/f/xdapnplq" method="POST">
       <div class="cta-row">
@@ -547,7 +555,15 @@
         <input type="text" name="phone" class="cta-input" placeholder="Phone number" />
       </div>
       <input type="email" name="email" class="cta-input" placeholder="Your email address" required style="margin-top:10px" />
-      <textarea name="message" class="cta-textarea" placeholder="Tell me about your lawn (size, how often, anything else?)" style="margin-top:10px"></textarea>
+      <select name="service" class="cta-input" required style="margin-top:10px; cursor:pointer; color: rgba(255,255,255,0.9);">
+        <option value="" disabled selected style="color:#333">What are you contacting us for?</option>
+        <option value="Grass Cutting" style="color:#333">Grass Cutting</option>
+        <option value="Lawn Mowing" style="color:#333">Lawn Mowing</option>
+        <option value="Regular Maintenance" style="color:#333">Regular Maintenance</option>
+        <option value="Cleaning Services" style="color:#333">Cleaning Services</option>
+        <option value="Other" style="color:#333">Other / Not sure yet</option>
+      </select>
+      <textarea name="message" class="cta-textarea" placeholder="Any extra details? (size of lawn, how often, special requests...)" style="margin-top:10px"></textarea>
       <button type="submit" class="btn-accent" style="margin-top:10px">Get my free quote →</button>
     </form>
     <p class="cta-success" id="successMsg">✓ Thanks! I'll be in touch very soon.</p>
