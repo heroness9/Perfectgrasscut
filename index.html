@@ -596,63 +596,21 @@
   //                          Jul, Aug, Sep, Oct, Nov, Dec
   // ============================================================
   const AVAILABILITY = {
-  // For each week (1–9), set the status:
-  //   "free"  = available (green)
-  //   "busy"  = not available (grey)
-  //   "next"  = next available slot (yellow highlight)
-  // Only ONE week should be "next" at a time.
-  weeks: {
-    1: "busy",
-    2: "busy",
-    3: "busy",   
-    4: "busy",   
-    5: "busy",
-    6: "next",   // ← this is the highlighted "next available" week
-    7: "free",
-    8: "free",
-    9: "free",
-  },
+    Jan: { 1:"busy", 2:"busy", 3:"busy", 4:"busy", 5:"busy", 6:"busy", 7:"busy", 8:"busy", 9:"busy" },
+    Feb: { 1:"busy", 2:"busy", 3:"busy", 4:"busy", 5:"busy", 6:"busy", 7:"busy", 8:"busy", 9:"busy" },
+    Mar: { 1:"busy", 2:"busy", 3:"busy", 4:"busy", 5:"busy", 6:"next", 7:"free", 8:"free", 9:"free" },
+    Apr: { 1:"free", 2:"free", 3:"free", 4:"free", 5:"free", 6:"free", 7:"free", 8:"free", 9:"free" },
+    May: { 1:"free", 2:"free", 3:"free", 4:"free", 5:"free", 6:"free", 7:"free", 8:"free", 9:"free" },
+    Jun: { 1:"free", 2:"free", 3:"free", 4:"free", 5:"free", 6:"free", 7:"free", 8:"free", 9:"free" },
+    Jul: { 1:"free", 2:"free", 3:"free", 4:"free", 5:"free", 6:"free", 7:"free", 8:"free", 9:"free" },
+    Aug: { 1:"free", 2:"free", 3:"free", 4:"free", 5:"free", 6:"free", 7:"free", 8:"free", 9:"free" },
+    Sep: { 1:"free", 2:"free", 3:"free", 4:"free", 5:"free", 6:"free", 7:"free", 8:"free", 9:"free" },
+    Oct: { 1:"free", 2:"free", 3:"free", 4:"free", 5:"free", 6:"free", 7:"free", 8:"free", 9:"free" },
+    Nov: { 1:"free", 2:"free", 3:"free", 4:"free", 5:"free", 6:"free", 7:"free", 8:"free", 9:"free" },
+    Dec: { 1:"free", 2:"free", 3:"free", 4:"free", 5:"free", 6:"free", 7:"free", 8:"free", 9:"free" },
 
-    // Text shown under the grid for the next available slot
     nextLabel: "Next available: Mar — Week 6",
   };
-  // ============================================================
-
-  // Build the month × week grid
-  const table = document.getElementById('availTable');
-  const nextEl = document.getElementById('availNext');
-  const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-  const NOW = new Date();
-  const currentMonthIdx = NOW.getMonth(); // 0=Jan
-
-  if (table) {
-    // Header row: blank corner + W1–W9
-    table.innerHTML += `<div></div>`;
-    for (let w = 1; w <= 9; w++) {
-      table.innerHTML += `<div class="avail-week-heading">W${w}</div>`;
-    }
-
-    // One row per month
-    MONTHS.forEach((month, mIdx) => {
-      const isPast = mIdx < currentMonthIdx;
-      // Month label
-      const lbl = document.createElement('div');
-      lbl.className = 'avail-month-label';
-      lbl.textContent = month;
-      if (isPast) lbl.style.opacity = '0.3';
-      table.appendChild(lbl);
-
-      // 9 week cells
-      for (let w = 1; w <= 9; w++) {
-        const rawStatus = (AVAILABILITY[month] && AVAILABILITY[month][w]) || 'free';
-        const status = isPast ? 'past' : rawStatus;
-        const cell = document.createElement('div');
-        cell.className = `avail-cell ${status}`;
-        cell.title = `${month} Week ${w}: ${isPast ? 'past' : rawStatus}`;
-        table.appendChild(cell);
-      }
-    });
-
     nextEl.textContent = AVAILABILITY.nextLabel;
   }
 
