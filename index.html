@@ -49,6 +49,11 @@
   .nav-links { display: flex; gap: 2rem; list-style: none; }
   .nav-links a { text-decoration: none; font-size: 0.875rem; color: var(--text-mid); font-weight: 400; transition: color 0.2s; }
   .nav-links a:hover { color: var(--green-deep); }
+  .nav-promos {
+    color: var(--green-bright) !important;
+    font-weight: 500 !important;
+  }
+  .nav-promos:hover { color: var(--green-deep) !important; }
   .nav-cta {
     background: var(--green-deep); color: var(--cream);
     padding: 0.6rem 1.4rem; border-radius: 100px;
@@ -115,6 +120,15 @@
     transition: gap 0.2s;
   }
   .btn-ghost:hover { gap: 10px; }
+  .btn-promos {
+    background: var(--accent); color: var(--green-deep);
+    padding: 0.85rem 2rem; border-radius: 100px;
+    font-size: 0.95rem; font-weight: 500; text-decoration: none;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    box-shadow: 0 4px 20px rgba(200,230,60,0.3);
+    display: flex; align-items: center; gap: 6px;
+  }
+  .btn-promos:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(200,230,60,0.4); }
   .hero-stats {
     display: flex; gap: 2.5rem; margin-top: 3rem;
     padding-top: 2rem; border-top: 1px solid rgba(0,0,0,0.08);
@@ -600,8 +614,8 @@
     <li><a href="#how">How it works</a></li>
     <li><a href="#availability">Availability</a></li>
     <li><a href="#updates">Updates</a></li>
+    <li><a href="https://heroness9.github.io/email.promos/" class="nav-promos">🎉 Promos & Deals</a></li>
   </ul>
-  <!-- ✅ Links to Base44 app -->
   <a href="https://guardia-clean-connect.base44.app" target="_blank" class="nav-cta">Get a quote</a>
 </nav>
 
@@ -611,8 +625,8 @@
     <h1 class="hero-title">Your lawn,<br><em>perfectly</em><br>kept.</h1>
     <p class="hero-sub">Professional grass cutting and mowing for neighbours in your area. Reliable, affordable, and done the best we can.</p>
     <div class="hero-actions">
-      <!-- ✅ Links to Base44 app -->
       <a href="https://guardia-clean-connect.base44.app" target="_blank" class="btn-primary">Book a service</a>
+      <a href="https://heroness9.github.io/email.promos/" class="btn-promos">🎉 Promos & Deals</a>
       <a href="#services" class="btn-ghost">See services →</a>
     </div>
     <div class="hero-stats">
@@ -1055,7 +1069,6 @@ if (form) {
     }
   });
 }
-
 </script>
 </body>
 </html>
