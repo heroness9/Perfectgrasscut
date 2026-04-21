@@ -1056,31 +1056,7 @@ if (form) {
   });
 }
 
-// ── EMAIL SIGNUP (Formspree) ──
-function handleSignup() {
-  const input = document.getElementById('signupEmail');
-  const error = document.getElementById('signupError');
-  const email = input.value.trim();
-  const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  if (!valid) { error.style.display = 'block'; return; }
-  error.style.display = 'none';
-  const data = new FormData();
-  data.append('email', email);
-  data.append('message', email + ' signed up for updates.');
-  fetch('https://formspree.io/f/xdapnplq', {
-    method: 'POST', body: data, headers: { 'Accept': 'application/json' }
-  }).then(function(res) {
-    if (res.ok) {
-      document.getElementById('signupForm').style.display = 'none';
-      document.getElementById('signupSuccess').style.display = 'block';
-    } else {
-      alert('Something went wrong — please try again.');
-    }
-  }).catch(function() { alert('Something went wrong — please try again.'); });
-}
 
-document.getElementById('signupEmail').addEventListener('keydown', function(e) {
-  if (e.key === 'Enter') handleSignup();
 });
 </script>
 </body>
